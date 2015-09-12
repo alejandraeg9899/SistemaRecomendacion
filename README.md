@@ -10,3 +10,5 @@ Sugerencias de Estructura:
 * Solución
 * Conclusiones
 * Bibliografía
+
+Para acelerar el desarrollo cada uno de estos puntos se sugiere que sean tratados individualmente
