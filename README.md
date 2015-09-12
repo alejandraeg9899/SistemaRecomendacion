@@ -11,4 +11,6 @@ Sugerencias de Estructura:
 * Conclusiones
 * Bibliografía
 
-Para acelerar el desarrollo cada uno de estos puntos se sugiere que sean tratados individualmente
+Para acelerar el desarrollo cada uno de estos puntos se sugiere que sean tratados individualmente.
+
+Les pido que incluyan la bibliografía completa.
