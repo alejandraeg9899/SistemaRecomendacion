@@ -1,4 +1,5 @@
-## Sistemas de Recomendación
+# Sistemas de Recomendación
+
 ## Antecedentes
 Los sistemas de recomendación son componentes cruciales de la mayoria de los sitios web, para mantener a sus usuarios satisfechos e incrementar el beneficio.
 
@@ -34,11 +35,9 @@ Sin embargo, a pesar de todos estos avances, la actual generación de sistemas d
 
 Las raices de los sistemas de recomendación inician con trabajos en ciencia cognitiva, recuperación de información y algunas conexiones con administración científica, emergen como un área independiente a mediados de 1990 cuando los investigadores se enfocan en probleas de recomendación que explicitamente se basaban en una estructura de rating. Intuitivamente, esta estimación es usualmente basada en la escala definida por un usuario acerca de una breve información. A partir del rating de algunos articulos se puede determinar el rating de algunos que no han sido seleccionados, con el __rating superior estimado__ .
 De manera formal el problema de recomendación puede ser formulado como sigue: Sea $$C$$ el conjunto de todos los usuarios y sea $$S$$ el conjunto de los posibles articulos que pueden ser recomendados talese como libros, peliculas o restaurantes. El espacio $$S$$  de los posibles articulos puede ser muy amplio, alcanzando los cientos de millones de articulos. Similarmente el espacio del usuario puede ser bastante amplio. Sea $$u$$ la función de utilidad que mide el beneficio de un articulo $$s$$ al usuario. De modo que $$C \times S \rigtharrow R$$, donde $$R$$ es la totalidad de un conjunto ordenado. Entonces, para cada usuario $c \in C$$, queremos seleccionar tal $$s' \in S $$ que maximize la utilidad del usuario. De manera simplificada tenemos que:   
-$$
-\forall c \in C, s' = argmax u(c,s)
-$$
+$$\forall c \in C, s' = $$  $$arg$$ $$max u(c,s)$$
 
-En un sistema de recomendación la utilidad de un articulo es usualmente representada por un _rating_ el cual indica como a un usuario particular le gustó un articulo en particular. Juan Perez le dio a "Harry Potter" el rating de 7 (en escala de 1 a 10).
+En un sistema de recomendación la utilidad de un articulo es usualmente representada por un _rating_ el cuál indica como a un usuario particular le gustó un articulo en particular. Juan Perez le dio a "Harry Potter" el rating de 7 (en escala de 1 a 10).
 
 ## Marco Teórico
 1. ¿Qué es un SR?
@@ -57,13 +56,18 @@ El rating del tomatómetro se basa en las opciones publicadas por críticos de c
 2. ¿Existe una clasificación?
 
 
-Los SR no se pueden clasificar debido a que en cada caso utilizan los mismos algoritmos para la clasifiación, pero se les puede clasificar por el contexto donde son aplicados (Aspectos de diseño):
+Los SR usualmente son clasificados en las siguientes categorias:
 
++ Recomendaciones Basadas en contenido: Al usuario le serán recomendados articulos similares a los que selecciono en el pasado.
++ Recomendaciones Colaborativas: Al usuario  le serán recomendados articulos que gustan a las personas con preferencias  y  gustos similares en el pasado.
++ Aproximacíon Híbrida: Éstos métodos combinan  métodos colaborativos y basádos en contenido.
+
+Adicionalmente los sistemas de recomendacion que predicen valores absolutos de rating que usuarios individulmente no han marcado aun en articulos no conocidos, se les conoci como _filtrado basádo en preferencias_.
 
 ** Un SR deberá cumplir con las siguientes condiciones: **
 
 
-- Incrementar el número de articulos vendidos:
+- Incrementar el número de artículos vendidos:
 Deberá ser capaz de vender un conjunto de artículos de modo que puedan ser comprados sin la intervención de los SR, es decir puede tener su propia meta de venta (** ningún visitante se puede ir sin comprar **).
 - Vender artículos diversos:
 Se prefiere la diversidad de artículos al ofertar productos ya que las empresas buscan que los usuarios (clientes) detecten productos en los que ni siquiera han pensado adquirir. Con frecuencia se dan descuentos o rebajas en ellos lo que ocasiona que las recomendaciones de los usuarios impacten su venta.
@@ -79,10 +83,6 @@ La intereacción por parte del usuario con el sitio permite que la información 
 Si es posible, para el SR existen varias rutas para llegar a la ENES, y con ayuda de un GPS ver las posibles apciones que hay para llegar, tambien se podría aplicar una encuesta a diferentes usuarios que usen transporte, que tengan automóvil, que vengan a pie y los usuarios que vengan en bicicleta.
 
 
-
-## Estado del Arte (Actualidad)
-1 Recomendación de rutas utilizando SR:
-
 ## Descripción del Problema
 
 ## Solución
@@ -90,15 +90,19 @@ Si es posible, para el SR existen varias rutas para llegar a la ENES, y con ayud
 Resolver por medio de herramientas informáticas, el problema de acceso vial a la ENES, y así poder encontrar otras formas de llegar evitando el embotellamiento.
 
 ## Conclusiones
+Los sistemas de recomendación han logrado una grán precisión, sin embargo pero cuando el mejor desempeño se ha alcanzado aparece la llamada _barrera mágica_[5] que se refiere a algunos niveles desconocidos de precisión, lo que revela que los ratings de los usuarios pueden ser aflijidos por inconsistencias en la información , básicamente _ruido_. En la mayoria de sistemas de recomendación aparecen inconsistencias y ello produce que la calidad de las recomendaciones se vea afectada.
+
 
 ## Bibliografía
-1. Francesco Ricci, Lior Rokach, Bracha Shapira, Paul B. Kantor: Recommender Systems Handbook
+[1] Ricci, Francesco. Recommender Systems Handbook. New York: Springer, 2011. Print
 
-[2] Toward the Next Generation of Recommender Systems: A Survey of State f the Art en Possible Extensions
+[2] Adomavicius, G., and A. Tuzhilin. "Toward the next Generation of Recommender Systems: A Survey of the State-of-the-art and Possible Extensions." IEEE Trans. Knowl. Data Eng. IEEE Transactions on Knowledge and Data Engineering: 734-49. Print.
 
-2. Sauter, V., & Sauter, V. (2010). Decision support systems for business intelligence (2nd ed.). Hoboken, N.J.: Wiley.
+[3] Sauter, Vicki Lynn, and Vicki Lynn Sauter. Decision Support Systems for Business Intelligence. 2nd ed. Hoboken, N.J.: Wiley, 2010. Print.
 
-3. R.Bell, Y. Koren and C. Volinsky. The BellKor 2008 Solution to the Netflix Prize. 2008
+[4] R.Bell, Y. Koren and C. Volinsky. The BellKor 2008 Solution to the Netflix Prize. 2008
+
+[5] Said, Alan, Brijnesh J. Jain, Sascha Narr, and Till Plumbaum. "Users and Noise: The Magic Barrier of Recommender Systems." User Modeling, Adaptation, and Personalization Lecture Notes in Computer Science: 237-48. Print
 
 4. Plan a ride with Surface, Directions, and Turf.js (Mapbox)
 https://www.mapbox.com/blog/dc-bikeshare-revisited/
