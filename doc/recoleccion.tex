@@ -18,13 +18,13 @@ Nuestra propuesta de diseño se centra en 4 puntos.
 
 \subsection{Recolección de los datos}
 
-Para la recolección, seleccionamos 20 inmobiliarias de la ciudad de morelia, algunos portales no presentaban listados accesibles y las descartamos. Del conjunto que era posible consultar propiedades a traves de una url directa se decidió  utilizar un crawler público{[}6{]} que nos permitiera indexar las paginas web de las inmobiliarias, de ahí obtenemos una lista de links ~\ref{fig:CrawlerList}, filtramos la lista dejando unicamente las que se refieren a propiedades y almacenanos los documentos en formato HTML. 
+Para la recolección, seleccionamos 20 inmobiliarias de la ciudad de morelia, algunos portales no presentaban listados accesibles y las descartamos. Del conjunto que era posible consultar propiedades a traves de una url directa se decidió  utilizar un crawler público{[}6{]} que nos permitiera indexar las paginas web de las inmobiliarias, de ahí obtenemos una lista de links (ver figura \ref{fig:CrawlerList}), filtramos la lista dejando unicamente las que se refieren a propiedades y almacenanos los documentos en formato HTML. 
 \subsection{Filtrado y Clasificación}
 
 Extraemos el cuerpo principal de los documento usando el lenguaje de programación python y almacenamos cada propiedad en un nuevo conjunto de datos  que convertiremos a un archivo csv para posteriomente  realizar la clasificación de las propiedades. Es importante destacar que no se requiere almacenar en una base de datos relacional debido simplifica  el realizar el análisis usando únicamente archivos en texto plano.
 
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{CrawlerSite.png}
 \caption{Listado de Artículos relacionados con propiedades}
@@ -32,14 +32,14 @@ Extraemos el cuerpo principal de los documento usando el lenguaje de programaci�
 \end{figure}
 
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{PropiedadesInmobiliariasEstadoVivienda.png}
 \caption{Distribución de Propiedades Tipo de Propiedad}
 \label{fig:PropiedadesType}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \begin{tabular}{cc}
   \hline
@@ -59,14 +59,15 @@ Bodega &   5 \\
 \end{figure}
 
 \subsection{Clasificación de las propiedades}
-Para el procesamiento de los datosc crudos decidimos utilizar el lenguaje de programación R, para analizar y clasificar. Las propiedades que descargamos de los portales web las hemos agrupado en un solo listado con aproximadamente 284 registros, las cuales  vienen listadas por Estado de la propiedades (Usado, Nuevo, Construcción), Área construida ($m^2$), Zona (Colonia o barrio de Referencia), Precio, Latitud, Longitud y algunas otras características como el tipo de propiedad (ver ~\ref{fig:PropiedadesType}). 
+Para el procesamiento de los datosc crudos decidimos utilizar el lenguaje de programación R, para analizar y clasificar. Las propiedades que descargamos de los portales web las hemos agrupado en un solo listado con aproximadamente 284 registros, las cuales  vienen listadas por Estado de la propiedades (Usado, Nuevo, Construcción), Área construida ($m^2$), Zona (Colonia o barrio de Referencia), Precio, Latitud, Longitud y algunas otras características como el tipo de propiedad (ver figura \ref{fig:Dataset}). 
 
 
 El algoritmo de clasificación para esta sección que hemos seleccionado es el de vecinos cercanos (KNN) ya que estamos trabajando con variables categóricas, nuestro objetivo es ofrecer opciones con carácteristicas similares dentro de cada categoria correspondiente.
-\begin{figure}[htbp]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{Dataset.png}
 \caption{Dataset de Propiedades Inmobiliarias}
+\label{fig:Dataset}
 \end{figure}
 
 
@@ -84,10 +85,21 @@ dist(x,y) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2+ \cdots + (p_n - q_n)^2}
 El KNN requiere elegir una cantidad  vecinos cercanos (K) y  determinar que tan bien el modelo clasifica nuevos valores. El balance entre sobre ajustar o subajustar el valor de K para el conjunto de entrenamiento es un problema conocido como \textbf{ajuste de la varianza}. Seleccionando valores de K reduce el impacto de la varianza causada por datos ruidosos, pero puede que el sistema ignore los grupos pequeños, incluyendolos equivocadamente en una clase. En el lado opuesto usando una K mayor se influye sobre la muestra clasificada. Por prueba y error, el mejor valor de k se encuentra entre estos dos extremos cuando las sugerencias mostradas son más parecidas entre si.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{IMG_0061.png}
-\caption{Efectos de selecciónar diferentes valores  de la K en KNN}
+\caption{Efectos de seleccionar diferentes valores  de la K en KNN}
 \end{figure}
 
 
+\section{Resultados}
+De la tabla ~\ref{fig:Clasificador} podemos analizar que de una entrada dada de 40 selecciones se puede sugerir un conjunto de propiedades con una K de 7 probamos distintos valores de K para refinar la consulta y obtener resultados con características similares a la entrada de datos.
+Sin embargo al utilizaar este algoritmo utilizamos una función de normalización de los datos buscando que las propiedades consideradas en la misma escala, se afecta el resultado del clasificador.
+
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.8\textwidth]{ModeloPredictivo.png}
+\caption{Propiedades recomendadas según la selección del Usuario}
+\label{fig:Clasificador}
+\end{figure}

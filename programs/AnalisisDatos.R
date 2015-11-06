@@ -56,5 +56,6 @@ library('gmodels')
 
 Casas_test_pred <- knn(train=Casas_train,test=Casas_prop,
                        cl=Casas_train_labels,k = 5)
+Casas_test_pred
 
 CrossTable(x = Casas_test_labels, y = Casas_test_pred, prop.chisq = FALSE)
