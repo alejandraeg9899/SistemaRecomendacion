@@ -1,0 +1,50 @@
+\section{Antecedentes}
+
+Las raíces de los sistemas de recomendación inician con trabajos en
+ciencia cognitiva, recuperación de información y algunas conexiones con
+administración científica, emergen como un área independiente a mediados
+de 1990 cuando los investigadores se enfocan en problemas de
+recomendación que explícitamente se basaban en una estructura de rating.
+Intuitivamente, esta estimación es usualmente basada en la escala
+definida por un usuario acerca de una breve información. A partir del
+rating de algunos artículos se puede determinar el rating de algunos que
+no han sido seleccionados, con el \textbf{rating superior estimado} . De
+manera formal el problema de recomendación puede ser formulado como
+sigue: Sea $C$ el conjunto de todos los usuarios y sea $S$ el
+conjunto de los posibles artículos que pueden ser recomendados tales
+como libros, películas o restaurantes. El espacio $S$ de los posibles
+artículos puede ser muy amplio, alcanzando los cientos de millones de
+artículos. Similarmente el espacio del usuario puede ser bastante
+amplio. Sea $u$ la función de utilidad que mide el beneficio de un
+articulo $s$ al usuario. De modo que $C \times S \rightarrow R$,
+donde $R$ es la totalidad de un conjunto ordenado. Entonces, para cada
+usuario $c \in C$, queremos seleccionar tal $s' \in S $ que
+maximiza la utilidad del usuario. De manera simplificada tenemos que:
+$\forall c \in C, s'=arg max u(c,s)$
+
+En un sistema de recomendación la utilidad de un artículo es usualmente
+representada por un \emph{rating} el cual indica como a un usuario
+particular le gusta un artículo en particular. Juan Perez le dio a
+``Harry Potter'' el rating de 7 (en escala de 1 a 10).
+
+\textbf{Ratings}. Rotten Tomatoes (Tomatómetro): El rating del
+tomatometro se basa en las opciones publicadas por críticos de cine y
+televisión, es una medida confiable de la calidad de una película y
+representa el porcentaje de reseñas positivas dadas a una película,
+
+\textbf{Filtrado Colaborativo}: La idea detrás del filtrado colaborativo
+es que se pueden usar los rating de los usuarios que comparten gustos
+similares para predecir los que aún no han sido definidos. Para obtener
+intuición, se comparan los ratings por pares del usuario
+
+\subsection{ Ejemplos de SR:}
+
+\begin{itemize}
+
+\item Airbnb. Sitio de recomendación de hospedaje. Promueve el hospedaje en casas o departamentos de particulares que ofrecen habitaciones a bajo precio donde además de mostrar ubicaciones disponibles por fecha y ubicación preferida, se incluye información de reseñas de clientes previos y se mezclan con comentarios de redes sociales relacionadas al perfil del usuario.
+
+\item Yelp. Recomendación de restaurantes. Los usuarios publican reseñas de sitios como: Restaurantes, Tiendas, Servicios (Taxi, Tintoreria, Lavanderia) y van construyendo confianza en los proveedores o vendedores de cierto bien, después se publican en un portal donde se localizan ubicandolos por ubicación cercana al cliente.
+
+\item Los SR de grandes empresas como
+Google Play, Apple Movies  utilizan un sistema de ranking para sugerir aplicaciones. Un sistema de ranking puede utilizar elementos como el número de descargas, el tamaño de la aplicación, y la ubicación geográfica del vendedor para mostrar en primer lugar las aplicaciones que tienen la misma categoría y que han sido seleccionadas por otros usuarios en compras previas. De manera similar al ranking de las busquedas de google,  se cuentan las palabras clave (keywords) y el numero de links a un sitio específico.De ahi que sólo se muestran los primeros 10 sitios más visitados. 
+\end{itemize}

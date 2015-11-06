@@ -1,0 +1,10 @@
+\subsection{Conclusiones}\label{conclusiones}
+
+Los sistemas de recomendación han logrado una gran precisión, sin
+embargo pero cuando el mejor desempeño se ha alcanzado aparece la
+llamada \emph{barrera mágica}{[}5{]} que se refiere a algunos niveles
+desconocidos de precisión, lo que revela que los ratings de los usuarios
+pueden ser afectados por inconsistencias en la información , básicamente
+\emph{ruido}. En la mayoría de sistemas de recomendación aparecen
+inconsistencias y ello produce que la calidad de las recomendaciones se
+vea afectada.

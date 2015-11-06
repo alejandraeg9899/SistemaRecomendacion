@@ -1,0 +1,28 @@
+---
+title: "Recomendacion-2"
+author: "Alejandra Esquivel"
+date: "12 de octubre de 2015"
+output: 
+  html_document: 
+    theme: readable
+---
+Encontramos que un motor de recomendación es viable para pequeñas empresas que utilizan su sitio web para presentar su catálogo de productos. En particular las inmobiliarias de morelia llegan a publicar entre un promedio de 800 casas [1]. 
+
+Proponemos diseñar un motor de recomendación que ofrezca sugerencias sobre viviendas dentro de ciertor parámentros introducidos por el usuario. Para ello seguimos la siguiente metodología:   
+
+1. Visitamos los sitios web de 10 inmobiliarias en morelia.
+
+2. Descargamos usando un crawler las paginas de cada sitio para obtener los siguientes datos:   
+
+
+* Ubicación de la Casa (latitud y longitud)
+* Precio de Venta
+* Metros Cuadrados construidos
+* Tipo de Vivienda
+* Estado de la Vivienda (Usada, Nueva, En construcción)
+* Zona de Ubicación (Punto de Referencia en la Ciudad)
+
+![]['histo.png']
+
+3. Filtramos la información por viviendas, tipo y precio para identificar cumulos de articulos.
+4. 
