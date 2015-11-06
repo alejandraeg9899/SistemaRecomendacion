@@ -5,4 +5,4 @@ mv Recomendadores.pdf ../
 rm *.log
 rm *.aux
 cd ..
-open Recomendadores.pdf
+open -F  Recomendadores.pdf
